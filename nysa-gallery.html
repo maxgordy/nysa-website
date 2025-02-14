@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        .gallery:hover {
+            border: 1px solid #777;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+        }
+        .desc {
+            padding: 10px;
+            text-align: center;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div class="gallery-container">
+        <div class="gallery">
+            <a target="_blank" href="img_1.jpg">
+                <img src="img_1.jpg" alt="Image 1">
+            </a>
+            <div class="desc">Description of image 1</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="img_2.jpg">
+                <img src="img_2.jpg" alt="Image 2">
+            </a>
+            <div class="desc">Description of image 2</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="img_3.jpg">
+                <img src="img_3.jpg" alt="Image 3">
+            </a>
+            <div class="desc">Description of image 3</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="img_4.jpg">
+                <img src="img_4.jpg" alt="Image 4">
+            </a>
+            <div class="desc">Description of image 4</div>
+        </div>
+    </div>
+    <a href="index.html" class="back-link">Back to Home</a>
+</body>
+</html>

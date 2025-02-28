@@ -39,7 +39,6 @@
             line-height: 1.6;
             margin-bottom: 30px;
             font-style: italic;
-
         }
         .videos-grid {
             display: grid;
@@ -57,6 +56,53 @@
             font-size: 1em;
             margin-top: 5px;
         }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            .logo {
+                width: 150px; /* Smaller logo size on tablets */
+            }
+            .title {
+                font-size: 2em; /* Adjust title size on smaller screens */
+            }
+            .description {
+                font-size: 1em; /* Adjust description font size */
+                margin-bottom: 20px; /* Reduce margin below the description */
+            }
+            .videos-grid {
+                grid-template-columns: 1fr; /* Stack the videos in a single column */
+                gap: 15px; /* Reduced gap between video cards */
+            }
+            .caption {
+                font-size: 0.9em; /* Adjust caption size */
+            }
+            iframe {
+                height: 250px; /* Adjust iframe height for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 120px; /* Further reduce logo size on smaller screens */
+            }
+            .title {
+                font-size: 1.5em; /* Adjust title size for very small screens */
+            }
+            .description {
+                font-size: 0.9em; /* Further reduce description font size */
+                margin-bottom: 15px; /* Reduce margin below description */
+            }
+            .videos-grid {
+                grid-template-columns: 1fr; /* Ensure videos stack on very small screens */
+                gap: 10px;
+            }
+            .caption {
+                font-size: 0.8em; /* Smaller caption for mobile */
+            }
+            iframe {
+                height: 200px; /* Further reduce iframe height on small screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -73,7 +119,7 @@
                     <li>ways of thinking,</li>
                     <li>ways of being alone,</li>
                     <li>ways of being together</li>
-                  </ul>
+                </ul>
             </p>
             <hr>
         </div>
@@ -83,7 +129,7 @@
                 <div class="caption">soundscape</div>
             </div>
             <div class="video">
-                <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2037423385%3Fsecret_token%3Ds-xXsGvIaiDa1&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/max_wg" title="gax mordy" target="_blank" style="color: #cccccc; text-decoration: none;">gax mordy</a> · <a href="https://soundcloud.com/max_wg/01-prettycrime-tunneling/s-xXsGvIaiDa1" title="01.prettycrime[tunneling].finalmix" target="_blank" style="color: #cccccc; text-decoration: none;">01.prettycrime[tunneling].finalmix</a></div>
+                <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2037423385%3Fsecret_token%3Ds-xXsGvIaiDa1&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
                 <div class="caption">invisible places that are very real to me</div>
             </div>
             <div class="video">

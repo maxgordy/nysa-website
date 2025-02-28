@@ -17,7 +17,9 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            width: 400px;
+            width: 200px; /* Smaller logo size for mobile */
+            max-width: 100%;
+            height: auto;
         }
         .container {
             max-width: 1200px;
@@ -53,6 +55,47 @@
             font-size: 1em;
             margin-top: 5px;
         }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            .logo {
+                width: 150px; /* Smaller logo size on tablets */
+            }
+            .title {
+                font-size: 2em; /* Adjust title size on smaller screens */
+            }
+            .description {
+                font-size: 1em; /* Adjust description font size */
+                margin-bottom: 20px; /* Reduce margin below the description */
+            }
+            .projects-grid {
+                grid-template-columns: 1fr; /* Stack the projects in a single column */
+                gap: 15px; /* Reduced gap between project cards */
+            }
+            .caption {
+                font-size: 0.9em; /* Adjust caption size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 120px; /* Further reduce logo size on smaller screens */
+            }
+            .title {
+                font-size: 1.5em; /* Adjust title size for very small screens */
+            }
+            .description {
+                font-size: 0.9em; /* Further reduce description font size */
+                margin-bottom: 15px; /* Reduce margin below description */
+            }
+            .projects-grid {
+                grid-template-columns: 1fr; /* Ensure projects stack on very small screens */
+                gap: 10px;
+            }
+            .caption {
+                font-size: 0.8em; /* Smaller caption for mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -66,19 +109,19 @@
         <div class="projects-grid">
             <div class="project">
                 <a href="nysa-sound.html"><img src="soundwave.ascii-art.png" alt="sound"></a>
-                <div class="caption">sounds</div>
+                <div class="caption">soundscapes</div>
             </div>
             <div class="project">
-                <img src="project2.jpg" alt="Project 2">
-                <div class="caption">Project 2</div>
+                <img src="tree1.png" alt="Project 2">
+                <div class="caption">landscapes</div>
             </div>
             <div class="project">
-                <img src="project3.jpg" alt="Project 3">
-                <div class="caption">Project 3</div>
+                <img src="house1.png" alt="Project 3">
+                <div class="caption">dreamscapes</div>
             </div>
             <div class="project">
-                <img src="project4.jpg" alt="Project 4">
-                <div class="caption">Project 4</div>
+                <img src="mhmap3.png" alt="Project 4">
+                <div class="caption">cityscapes</div>
             </div>
         </div>
     </div>

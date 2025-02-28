@@ -16,6 +16,9 @@
         }
         .logo {
             padding: 20px;
+            max-width: 100%; /* Ensure the logo doesn't overflow */
+            display: block;
+            margin: 0 auto; /* Center the logo */
         }
         .header {
             display: flex;
@@ -23,6 +26,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding: 20px;
         }
         .title {
             font-size: 3em;
@@ -40,18 +44,20 @@
             margin-bottom: 20px;
             text-decoration: overline;
             word-spacing: 30px;
-
         }
         .nav {
             display: flex;
             gap: 20px;
-            font-size: 2.0em;
+            font-size: 1.2em;
+            flex-wrap: wrap; /* Allow the nav items to stack on smaller screens */
+            justify-content: center;
         }
         .nav a {
             text-decoration: none;
-            font-size: 1em;
+            font-size: 1.2em;
             color: white;
             font-weight: bold;
+            padding: 10px;
         }
         .nav a:hover {
             color: rgb(0, 80, 253);
@@ -66,7 +72,45 @@
             max-width: 800px;
             padding: 20px;
             line-height: 1.6;
-            text-align: center;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5em; /* Slightly smaller title */
+            }
+            .slogan {
+                font-size: 0.9em; /* Adjust slogan size */
+                word-spacing: 15px; /* Reduce word spacing */
+            }
+            .nav a {
+                font-size: 1em; /* Reduce font size for mobile */
+                padding: 8px; /* Reduce padding */
+            }
+            .logo {
+                padding: 10px; /* Less padding around the logo */
+            }
+            .content {
+                padding: 15px; /* Reduce content padding */
+                font-size: 1em; /* Adjust font size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2em; /* Further reduce title size on very small screens */
+            }
+            .nav {
+                flex-direction: column; /* Stack nav links vertically */
+                gap: 15px;
+                font-size: 1em;
+            }
+            .nav a {
+                font-size: 1em;
+                padding: 12px; /* Increase padding for easier tapping */
+            }
         }
     </style>
 </head>

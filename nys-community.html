@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Library - NYSA</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+            color: black;
+            text-align: left;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 200px; /* Smaller logo size for mobile */
+            max-width: 100%;
+            height: auto;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .title {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            -webkit-text-stroke: 2px black;
+            color: transparent;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .sound-library {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .sound-item {
+            text-align: center;
+        }
+        .sound-item iframe {
+            width: 100%;
+            height: 315px;
+        }
+        .caption {
+            font-size: 1em;
+            margin-top: 5px;
+        }
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .sound-library {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html"><img src="nysalogo.transparent.png" alt="NYSA Logo" class="logo"></a>
+    <div class="container">
+        <div class="title">Sound Library</div>
+        <hr>
+        <div class="description">
+            Welcome to the NYSA Sound Library! Here you can explore and listen to sounds uploaded by our community members. Each sound represents an exploration of space, culture, and more.
+        </div>
+         <!-- Embed Google Sheets -->
+         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQWjI_0rT-kF3fYBDKyQeUeCNdwMKuvz9H8pfVgtxDHFlqFcYzDompgIEyCFqj8-Pali75kcMv9acWe/pubhtml?widget=true&amp;headers=false"></iframe>
+        <!-- Sound Library Section -->
+        <div class="sound-library">
+            <!-- Example 1: Google Drive Audio File -->
+            <div class="sound-item">
+                <audio controls>
+                    <source src="https://drive.google.com/file/d/1dvRHML_iCdd-ynRHdGjMv7PitOCPl2Mu/view?usp=drive_link" type="audio/m4a">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="caption">Sound Title 1</div>
+            </div>
+            
+            <!-- Example 2: Another Google Drive Audio File -->
+            <div class="sound-item">
+                <audio controls>
+                    <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="caption">Sound Title 2</div>
+            </div>
+            
+            <!-- More audio items can go here -->
+        </div>
+        <hr>
+    </div>
+</body>
+</html>

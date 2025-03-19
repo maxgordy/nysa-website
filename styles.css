@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@700&display=swap');
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: midnightblue;
+    color: white;
+    text-align: left;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Other styles remain unchanged */
+
+.main-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    transition: filter 0.5s ease;  /* Smooth transition for image filter */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+body.dark-mode .title {
+    -webkit-text-stroke: 2px white; /* White outline in dark mode */
+}
+
+body.dark-mode .nav a {
+    color: white;  /* Ensure nav links are white in dark mode */
+}
+
+body.dark-mode .main-image {
+    filter: invert(1); /* Invert images in dark mode */
+}
+
+/* Dark Mode Toggle Button */
+body.dark-mode #darkModeToggle {
+    background-color: white;
+    color: black;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5em; /* Slightly smaller title */
+    }
+    .slogan {
+        font-size: 0.9em; /* Adjust slogan size */
+        word-spacing: 15px; /* Reduce word spacing */
+    }
+    .nav a {
+        font-size: 1em; /* Reduce font size for mobile */
+        padding: 8px; /* Reduce padding */
+    }
+    .logo {
+        padding: 10px; /* Less padding around the logo */
+    }
+    .content {
+        padding: 15px; /* Reduce content padding */
+        font-size: 1em; /* Adjust font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2em; /* Further reduce title size on very small screens */
+    }
+    .nav {
+        flex-direction: column; /* Stack nav links vertically */
+        gap: 15px;
+        font-size: 1em;
+    }
+    .nav a {
+        font-size: 1em;
+        padding: 12px; /* Increase padding for easier tapping */
+    }
+}

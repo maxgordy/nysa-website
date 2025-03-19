@@ -12,7 +12,29 @@
             background-color: white;
             color: black;
             text-align: left;
+            transition: background-color 0.3s, color 0.3s;
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        body.dark-mode img {
+            filter: invert(1); /* Inverts the images in dark mode */
+            transition: filter 0.5s ease; /* Smooth transition */
+        }
+
+        body.dark-mode .title {
+            -webkit-text-stroke: 2px white;
+        }
+
+        body.dark-mode .logo {
+            filter: none; /* Prevents inversion of the logo */
+            transition: filter 0.5s ease; /* Smooth transition for filter */
+        }
+
         .logo {
             position: absolute;
             top: 10px;
@@ -21,10 +43,12 @@
             max-width: 100%;
             height: auto;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .title {
             font-size: 2.5em;
             font-weight: bold;
@@ -34,24 +58,29 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
+
         .description {
             font-size: 1.1em;
             line-height: 1.6;
             margin-bottom: 30px;
             font-style: italic;
         }
+
         .videos-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
+
         .video {
             text-align: center;
         }
+
         iframe {
             width: 100%;
             height: 315px;
         }
+
         .caption {
             font-size: 1em;
             margin-top: 5px;
@@ -103,10 +132,30 @@
                 height: 200px; /* Further reduce iframe height on small screens */
             }
         }
+
+        /* Dark Mode Toggle Button */
+        #darkModeToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        body.dark-mode #darkModeToggle {
+            background: #fff;
+            color: #000;
+        }
     </style>
 </head>
 <body>
-    <a href="index.html"><img src="nysalogo.transparent.png" alt="NYSA Logo" class="logo"></a>
+    <a href="index.html"><img src="images/nysalogo.transparent.png" alt="NYSA Logo" class="logo"></a>
+    <button id="darkModeToggle">dark</button>
+
     <div class="container">
         <div class="title">Sounds</div>
         <hr>
@@ -146,5 +195,29 @@
             *<a href="https://www.inventorypress.com/product/figures-in-air">Figures in Air (Micah Silver)</a>
         </p>
     </div>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Check localStorage for dark mode preference
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            darkModeToggle.textContent = "light";
+        }
+
+        darkModeToggle.addEventListener("click", function() {
+            body.classList.toggle("dark-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                darkModeToggle.textContent = "light";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                darkModeToggle.textContent = "dark";
+            }
+        });
+    </script>
 </body>
 </html>

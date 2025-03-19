@@ -5,74 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About NYSA</title>
     <style>
-        html, body {
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            background-image: url('NYC-GRID-1811.png'); /* Background image */
-            background-size: cover; /* Ensure the image covers the entire page */
-            background-position: top center; /* Keep the background image centered */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            color: whitesmoke; /* Text color */
+        body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            height: auto; /* Allow the body to grow beyond the viewport height */
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+            color: black;
+            text-align: left;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        .header {
-            background-color: rgba(0, 0, 255, 0.95); /* Blue background with some transparency */
-            display: flex;
-            align-items: center; /* Aligns the logo to the left */
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000; /* Keeps the header above the rest of the content */
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+        
+        body.dark-mode img {
+            filter: invert(1); /* Inverts the images in dark mode */
+            transition: filter 0.5s ease; /* Smooth transition */
+        }
+
+        body.dark-mode .title {
+            -webkit-text-stroke: 2px white;
         }
 
         .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             width: 200px;
+            max-width: 100%;
+            height: auto;
             padding: 10px;
         }
 
-        .slogan {
-            font-size: 1.0em;
-            font-weight: normal;
-            font-style: italic;
-            margin-left: auto; /* Move the slogan to the right */
-        }
-
-        .content {
-            background-color: rgba(0, 0, 255, 0.9); /* Blue background with some transparency */
-            color: whitesmoke;
-            padding: 30px;
-            max-width: 800px;
-            margin: 20px auto;
-            opacity: 0; /* Make content initially invisible */
-            transition: opacity 1s; /* Add smooth fade-in effect */
-            margin-bottom: 40px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .title {
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: bold;
             text-transform: uppercase;
-            -webkit-text-stroke: 2px white;
+            -webkit-text-stroke: 2px black;
             color: transparent;
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
 
-        h1, h2 {
-            font-weight: bold;
-            text-transform: uppercase;
+        .description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
-        h1 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin-top: 30px;
+        .content {
+            background-color: rgba(14, 41, 122, 0.95); /* Updated blue */
+            color: whitesmoke;
+            padding: 30px;
+            max-width: 800px;
+            margin: 20px auto;
+            opacity: 0;
+            transition: opacity 1s;
+            margin-bottom: 40px;
         }
 
         .intro {
@@ -81,49 +78,195 @@
             margin-bottom: 20px;
         }
 
+        /* Contact Text Styling */
         .contact {
             margin-top: 30px;
             font-weight: bold;
-            background-color: rgba(0, 0, 255, 0.9); /* Blue background with some transparency */
+            background-color: rgba(14, 41, 122, 0.9); /* Updated blue */
+            color: white; /* Always white text for contact */
         }
 
+        /* Dark Mode Toggle Button */
+        #darkModeToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        body.dark-mode #darkModeToggle {
+            background: #fff;
+            color: #000;
+        }
+
+        body.dark-mode .logo {
+            filter: none; /* Prevents inversion of the logo */
+            transition: filter 0.5s ease; /* Smooth transition for filter */
+        }
+
+        /* Modal Styles */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 60px;
+        }
+
+        #modalImg {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content {
+            text-align: center;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            .logo {
+                width: 150px;
+            }
+            .title {
+                font-size: 2em;
+            }
+            .description {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .caption {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 120px;
+            }
+            .title {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 0.9em;
+                margin-bottom: 15px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .caption {
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="nysalogo.transparent.png" alt="Main visual" class="logo">
+    <a href="index.html"><img src="images/nysalogo.transparent.png" alt="NYSA Logo" class="logo"></a>
+    <button id="darkModeToggle">dark</button>
+
+    <div class="container">
+        <div class="title">About NYSA</div>
+        <hr>
+        <div class="description" id="content1"></div>
+            <p> The New York Space Agency (NYSA) is a collaborative project dedicated to understanding the spaces we inhabit and reimagining our shared relationship with them. By identifying spatial contradictions and inequalities in New York and cities around the world, we aim to envision a new urban landscape: one built to meet community needs rather than exclusively serve economic interests. </p>
+            <p>The New York Space Agency is engaged in research, exhibitions, and other programming on a continuous basis. Our projects explore the intersections of urban space, technology, and culture. We categorize projects thematically and regionally, providing insight into the evolving built environment.</p>
+            <p>NYSA will serve as a third space for ideas, providing a hybrid publishing platform to make room for writing, art, and music from our community. We plan to produce a print magazine, develop a shared digital space, support music that explores the architecture of sound, and host events and actions to foster creative engagement and dialogue about spatial justice.</p>
+            <div class="contact">
+                You can reach us at newyorkspaceagency [at] gmail.com
+            </div>
+        </div>
     </div>
 
-    <!-- These content sections will fade in when they come into view while scrolling -->
-    <div class="content" id="content1">
-        <p>The New York Space Agency (NYSA) is a collaborative project dedicated to understanding the spaces we inhabit and reimagining our shared relationship with them. By identifying spatial contradictions and inequalities in New York and cities around the world, we aim to envision a new urban landscape: one built to meet community needs rather than exclusively serve economic interests.</p>
-    </div>
 
-    <div class="content" id="content2">
-        <p>We will explore how spaces appear in our perception, imagination, and memory, and offer alternative methods of understanding the city and being within it. As emerging planners, writers, artists, and residents with a stake in our city, we are committed to simultaneous imagination and action, to taking real steps now towards creating spaces that reflect our collective aspirations for the future.</p>
+    <!-- The Modal -->
+    <div id="imageModal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Modal Image">
+            <div id="caption"></div>
+        </div>
     </div>
-
-    <div class="content" id="content3">
-        <p>NYSA will serve as a third space for ideas, providing a hybrid publishing platform to make room for writing, art, and music from our community. We plan to produce a print magazine, develop a shared digital space, support music that explores the architecture of sound, and host events and actions to foster creative engagement and dialogue about spatial justice.</p>
-    </div>
-
-    <div class="contact">You can reach us at newyorkspaceagency [at] gmail.com</div>
 
     <script>
-        // Intersection Observer to trigger animations as you scroll
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1'; // Fade in
-                    observer.unobserve(entry.target); // Stop observing once it is visible
-                }
-            });
-        }, { threshold: 0.5 }); // Trigger when 50% of the element is in view
+        // Image Modal functionality
+        document.querySelectorAll(".project").forEach(project => {
+            project.addEventListener("click", function() {
+                let modal = document.getElementById("imageModal");
+                let modalImg = document.getElementById("modalImg");
+                let captionText = document.getElementById("caption");
 
-        // Observe each content section
-        const contents = document.querySelectorAll('.content');
-        contents.forEach(content => {
-            observer.observe(content);
+                modal.style.display = "block";
+                modalImg.src = this.dataset.img;
+                captionText.innerHTML = this.dataset.title;
+            });
+        });
+
+        // Close Modal
+        document.querySelector(".close").addEventListener("click", function() {
+            document.getElementById("imageModal").style.display = "none";
+        });
+
+        // Close Modal on clicking outside
+        window.addEventListener("click", function(event) {
+            let modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Check localStorage for dark mode preference
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            darkModeToggle.textContent = "light";
+        }
+
+        darkModeToggle.addEventListener("click", function() {
+            body.classList.toggle("dark-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                darkModeToggle.textContent = "light";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                darkModeToggle.textContent = "dark";
+            }
         });
     </script>
 </body>

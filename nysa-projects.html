@@ -12,20 +12,24 @@
             background-color: white;
             color: black;
             text-align: left;
+            transition: background-color 0.3s, color 0.3s;
         }
+
         .logo {
             position: absolute;
             top: 10px;
             right: 10px;
-            width: 200px; /* Smaller logo size for mobile */
+            width: 200px;
             max-width: 100%;
             height: auto;
             padding: 10px;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .title {
             font-size: 2.5em;
             font-weight: bold;
@@ -35,72 +39,160 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
+
         .description {
             font-size: 1.1em;
             line-height: 1.6;
             margin-bottom: 30px;
         }
+
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
+
         .project {
             text-align: center;
+            cursor: pointer;
         }
+
         .project img {
             width: 100%;
             height: auto;
+            transition: transform 0.3s ease;
         }
+
+        .project:hover img {
+            transform: scale(1.05);
+        }
+
         .caption {
             font-size: 1em;
             margin-top: 5px;
         }
 
+        /* Dark Mode Toggle Button */
+        #darkModeToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+        
+        body.dark-mode img {
+            filter: invert(1); /* Inverts the images in dark mode */
+            transition: filter 0.5s ease; /* Smooth transition */
+        }
+
+        body.dark-mode .title {
+            -webkit-text-stroke: 2px white;
+        }
+
+        body.dark-mode .logo {
+            filter: none; /* Prevents inversion of the logo */
+            transition: filter 0.5s ease; /* Smooth transition for filter */
+        }
+
+        /* Modal Styles */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 60px;
+        }
+
+        #modalImg {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content {
+            text-align: center;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         /* Media Queries for Mobile Devices */
         @media (max-width: 768px) {
             .logo {
-                width: 150px; /* Smaller logo size on tablets */
+                width: 150px;
             }
             .title {
-                font-size: 2em; /* Adjust title size on smaller screens */
+                font-size: 2em;
             }
             .description {
-                font-size: 1em; /* Adjust description font size */
-                margin-bottom: 20px; /* Reduce margin below the description */
+                font-size: 1em;
+                margin-bottom: 20px;
             }
             .projects-grid {
-                grid-template-columns: 1fr; /* Stack the projects in a single column */
-                gap: 15px; /* Reduced gap between project cards */
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
             .caption {
-                font-size: 0.9em; /* Adjust caption size */
+                font-size: 0.9em;
             }
         }
 
         @media (max-width: 480px) {
             .logo {
-                width: 120px; /* Further reduce logo size on smaller screens */
+                width: 120px;
             }
             .title {
-                font-size: 1.5em; /* Adjust title size for very small screens */
+                font-size: 1.5em;
             }
             .description {
-                font-size: 0.9em; /* Further reduce description font size */
-                margin-bottom: 15px; /* Reduce margin below description */
+                font-size: 0.9em;
+                margin-bottom: 15px;
             }
             .projects-grid {
-                grid-template-columns: 1fr; /* Ensure projects stack on very small screens */
+                grid-template-columns: 1fr;
                 gap: 10px;
             }
             .caption {
-                font-size: 0.8em; /* Smaller caption for mobile */
+                font-size: 0.8em;
             }
         }
     </style>
 </head>
 <body>
-    <a href="index.html"><img src="nysalogo.transparent.png" alt="NYSA Logo" class="logo"></a>
+    <a href="index.html"><img src="images/nysalogo.transparent.png" alt="NYSA Logo" class="logo"></a>
+    <button id="darkModeToggle">dark</button>
+
     <div class="container">
         <div class="title">Programs & Projects</div>
         <hr>
@@ -108,23 +200,82 @@
             The New York Space Agency is engaged in research, exhibitions, and other programming on a continuous basis. Our projects explore the intersections of urban space, technology, and culture. We categorize projects thematically and regionally, providing insight into the evolving built environment.
         </div>
         <div class="projects-grid">
-            <div class="project">
-                <a href="nysa-sound.html"><img src="soundwave.ascii-art.png" alt="sound"></a>
+            <a href="nysa-sound.html" class="project" data-img="images/soundwave.ascii-art.png" data-title="soundscapes">
+                <img src="images/soundwave.ascii-art.png" alt="sound">
                 <div class="caption">soundscapes</div>
-            </div>
-            <div class="project">
-                <img src="tree1.png" alt="Project 2">
+            </a>
+            <div class="project" data-img="images/tree1.png" data-title="landscapes">
+                <img src="images/tree1.png" alt="landscapes">
                 <div class="caption">landscapes</div>
             </div>
-            <div class="project">
-                <img src="house1.png" alt="Project 3">
+            <div class="project" data-img="images/house1.png" data-title="dreamscapes">
+                <img src="images/house1.png" alt="dreamscapes">
                 <div class="caption">dreamscapes</div>
             </div>
-            <div class="project">
-                <img src="mhmap3.png" alt="Project 4">
+            <div class="project" data-img="images/mhmap3.png" data-title="cityscapes">
+                <img src="images/mhmap3.png" alt="cityscapes">
                 <div class="caption">cityscapes</div>
             </div>
         </div>
     </div>
+
+    <!-- The Modal -->
+    <div id="imageModal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Modal Image">
+            <div id="caption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Image Modal functionality
+        document.querySelectorAll(".project").forEach(project => {
+            project.addEventListener("click", function() {
+                let modal = document.getElementById("imageModal");
+                let modalImg = document.getElementById("modalImg");
+                let captionText = document.getElementById("caption");
+
+                modal.style.display = "block";
+                modalImg.src = this.dataset.img;
+                captionText.innerHTML = this.dataset.title;
+            });
+        });
+
+        // Close Modal
+        document.querySelector(".close").addEventListener("click", function() {
+            document.getElementById("imageModal").style.display = "none";
+        });
+
+        // Close Modal on clicking outside
+        window.addEventListener("click", function(event) {
+            let modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Check localStorage for dark mode preference
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            darkModeToggle.textContent = "light";
+        }
+
+        darkModeToggle.addEventListener("click", function() {
+            body.classList.toggle("dark-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                darkModeToggle.textContent = "light";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                darkModeToggle.textContent = "dark";
+            }
+        });
+    </script>
 </body>
 </html>

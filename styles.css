@@ -20,9 +20,15 @@ body {
 }
 
 /* Dark Mode Styles */
+/* Dark Mode Styles */
 body.dark-mode {
     background-color: black;
     color: white;
+}
+
+body.dark-mode .main-image {
+    filter: invert(1); /* Ensure images invert when dark mode is applied */
+    transition: filter 0.5s ease; /* Smooth transition */
 }
 
 body.dark-mode .title {
@@ -34,6 +40,10 @@ body.dark-mode .nav a {
 }
 
 body.dark-mode .main-image {
+    filter: invert(1); /* Invert images in dark mode */
+}
+
+body.dark-mode .img {
     filter: invert(1); /* Invert images in dark mode */
 }
 

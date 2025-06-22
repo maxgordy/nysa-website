@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYSA</title>
+    <link rel="icon" type="image/x-icon" href="/images/nysalogo.sq.1.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@700&display=swap');
+
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             margin: 0;
@@ -14,12 +17,31 @@
             color: white;
             text-align: left;
         }
+
         .logo {
             padding: 20px;
-            max-width: 100%; /* Ensure the logo doesn't overflow */
+            max-width: 100%;
             display: block;
-            margin: 0 auto; /* Center the logo */
+            margin: 0 auto;
         }
+
+        /* Styling the GIF */
+        .logo-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            /* Center the GIF */
+            align-items: center;
+            /* Vertically center the GIF */
+            width: 100%;
+            /* Ensure the container takes up full width */
+        }
+
+        .logo-container img {
+            width: 200px;
+            height: auto;
+        }
+
         .header {
             display: flex;
             flex-direction: column;
@@ -28,6 +50,7 @@
             text-align: center;
             padding: 20px;
         }
+
         .title {
             font-size: 3em;
             font-weight: bold;
@@ -37,6 +60,7 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
+
         .slogan {
             font-size: 1.0em;
             font-weight: normal;
@@ -45,13 +69,15 @@
             text-decoration: overline;
             word-spacing: 30px;
         }
+
         .nav {
             display: flex;
             gap: 20px;
             font-size: 1.2em;
-            flex-wrap: wrap; /* Allow the nav items to stack on smaller screens */
+            flex-wrap: wrap;
             justify-content: center;
         }
+
         .nav a {
             text-decoration: none;
             font-size: 1.2em;
@@ -59,15 +85,18 @@
             font-weight: bold;
             padding: 10px;
         }
+
         .nav a:hover {
             color: rgb(0, 80, 253);
             text-decoration: underline;
         }
+
         .main-image {
             max-width: 100%;
             height: auto;
             margin-top: 20px;
         }
+
         .content {
             max-width: 800px;
             padding: 20px;
@@ -76,44 +105,50 @@
             margin: 0 auto;
         }
 
-        /* Media Queries for Mobile Devices */
         @media (max-width: 768px) {
             .title {
-                font-size: 2.5em; /* Slightly smaller title */
+                font-size: 2.5em;
             }
+
             .slogan {
-                font-size: 0.9em; /* Adjust slogan size */
-                word-spacing: 15px; /* Reduce word spacing */
+                font-size: 0.9em;
+                word-spacing: 15px;
             }
+
             .nav a {
-                font-size: 1em; /* Reduce font size for mobile */
-                padding: 8px; /* Reduce padding */
+                font-size: 1em;
+                padding: 8px;
             }
+
             .logo {
-                padding: 10px; /* Less padding around the logo */
+                padding: 10px;
             }
+
             .content {
-                padding: 15px; /* Reduce content padding */
-                font-size: 1em; /* Adjust font size for mobile */
+                padding: 15px;
+                font-size: 1em;
             }
         }
 
         @media (max-width: 480px) {
             .title {
-                font-size: 2em; /* Further reduce title size on very small screens */
+                font-size: 2em;
             }
+
             .nav {
-                flex-direction: column; /* Stack nav links vertically */
+                flex-direction: column;
                 gap: 15px;
                 font-size: 1em;
             }
+
             .nav a {
                 font-size: 1em;
-                padding: 12px; /* Increase padding for easier tapping */
+                padding: 12px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="logo">
         <img src="images/nysalogo.transparent.png" alt="Main visual" class="main-image">
@@ -122,7 +157,7 @@
         <div class="title">New York Space Agency</div>
         <div class="slogan">a space for space</div>
         <div class="nav">
-            <a href="nysa-projects.html">projects</a> 
+            <a href="nysa-projects.html">projects</a>
             <a href="nysa-about.html">about</a>
             <a href="nysa-community.html">community</a>
         </div>
@@ -130,8 +165,12 @@
     <div class="content">
         <p>Welcome to NYSA.</p>
     </div>
+    <!-- <div class="logo-container">
+        <img src="images/nysa-spin.gif" alt="Spinning Logo">
+    </div> -->
     <div class="main-image">
         <img src="images/nysa.mh2.png" alt="Main visual" class="main-image">
     </div>
 </body>
+
 </html>

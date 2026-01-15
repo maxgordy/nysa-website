@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </p>
       <p>${event.description}</p>
       <div class="event-actions">
-        <a href="${event.signup_url}" target="_blank">Sign up for updates</a>
+        <a href="${event.signup_url}" target="_blank">RSVP / get updates</a>
         <a href="${googleCalendarLink(event)}" target="_blank">
           Add to Google Calendar
         </a>

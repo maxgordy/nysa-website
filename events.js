@@ -2,7 +2,7 @@ const events = [
     {
         id: "collaging-city-0123",
         title: "Mapping the City",
-        date: "26.01.23",
+        date: "2026.01.23",
         time: "18:00",
         location: "Finlay's Apartment, NYC",
         description: "We will be drawing and collaging the city from memory - study your maps folks.",
